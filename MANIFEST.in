@@ -1,0 +1,2 @@
+graft flaskr/static
+global-exclude *.pyc

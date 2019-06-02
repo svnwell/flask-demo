@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+cdir=$(pwd)
+
+cd `dirname $0`
+python setup.py bdist_wheel
+
+cd dist
+svn ci -m ""
+
+cd cdir
+

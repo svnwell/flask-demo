@@ -18,9 +18,9 @@ class Demo:
 
     def uploads(self, params):
         current_app.logger.info("name:%s", params['name'])
-        current_app.logger.info("full name:%s", params['fname'])
+        current_app.logger.info("file name:%s", params['fname'])
 
-        url = better_path(current_app.config['PIC_URL'])+params['name']
+        url = better_path(current_app.config['PIC_URL'])+params['fname']
 
         return on_success(url)
 

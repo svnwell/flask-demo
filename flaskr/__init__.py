@@ -3,8 +3,9 @@
 """
 
 from flask_cors import CORS
+from flask_docs import ApiDoc
 from flask import(
-    Flask
+    Flask, jsonify
 )
 
 DBA = None
@@ -17,7 +18,7 @@ def create_app(test_config=None, env=None):
     CORS(app)
 
     if test_config is None:
-        app.config.from_object('risk.default_settings')
+        app.config.from_object('flaskr.default_settings')
         if env:
             app.config.from_envvar(env)
     else:
@@ -28,10 +29,10 @@ def create_app(test_config=None, env=None):
     if not DBA:
         DBA = db.DBAdaptor(app)
 
-    from .import rdsdb
-    global RDS
-    if not RDS:
-        RDS = rdsdb.RediPool(app)
+    # from .import rdsdb
+    # global RDS
+    # if not RDS:
+    #     RDS = rdsdb.RediPool(app)
 
     from . import(
         demo
